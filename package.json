@@ -2,7 +2,8 @@
 	"name": "react-ext",
 	"displayName": "Kelly's React Extension",
 	"description": "",
-	"version": "0.0.1",
+	"publisher": "Kelly",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.44.0"
 	},
@@ -10,13 +11,18 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:react-ext.CreateComponent"
+		"onCommand:react-ext.CreateComponent",
+		"onCommand:react-ext.CreateContext"
 	],
 	"main": "./src/extension.js",
 	"contributes": {
 		"commands": [{
 			"command": "react-ext.CreateComponent",
 			"title": "CreateComponent"
+		},
+		{
+			"command": "react-ext.CreateContext",
+			"title": "CreateContext"
 		}],
 		"snippets": [
 			{

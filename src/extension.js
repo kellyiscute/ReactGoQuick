@@ -12,7 +12,7 @@ function activate(context) {
 
 	let commandCreateComponent = vscode.commands.registerCommand('react-ext.CreateComponent', () => {
 		let inputbox = vscode.window.createInputBox()
-		inputbox.prompt = 'asdf'
+		inputbox.prompt = 'Component Name'
 
 		inputbox.onDidAccept(() => {
 			inputbox.hide()
@@ -29,9 +29,10 @@ function activate(context) {
 			.then((editor) => {
 				editor.edit((editBuilder) => {
 					editBuilder.insert(new vscode.Position(0,0), "import React from 'react'\n\nfunction " + inputbox.value + "(props) {\n\t\n}\n\nexport default " + inputbox.value)
+				}).then(() => {
+					let cursorPos = new vscode.Position(3,4)
+					editor.selection = new vscode.Selection(cursorPos,cursorPos)
 				})
-				let cursorPos = new vscode.Position(3,4)
-				editor.selection = new vscode.Selection(cursorPos,cursorPos)
 			})
 		})
 
@@ -39,7 +40,58 @@ function activate(context) {
 
 	});
 
+
+	let commandCreateContext = vscode.commands.registerCommand('react-ext.CreateContext', () => {
+		let inputbox = vscode.window.createInputBox()
+		inputbox.prompt = 'Context Name'
+		
+		inputbox.onDidAccept(() => {
+			inputbox.hide()
+			let contextName = inputbox.value
+			let fileName = inputbox.value + '.js'
+			let functionName = inputbox.value + 'Provider'
+
+			let content = 
+`import React, { createContext } from 'react'
+
+export const ${contextName} = createContext()
+
+function ${functionName}(props) {
+
+	return (
+		<${contextName}.Provider value={{}}>
+			{props.children}
+		</${contextName}.Provider>
+	)
+}
+
+export default ${functionName}
+`
+			console.log(content)
+
+			let file = vscode.Uri.file(vscode.workspace.workspaceFolders[0].uri.path + '/src/contexts/' + fileName)
+			let wsEdit = new vscode.WorkspaceEdit()
+
+			wsEdit.createFile(file)
+			vscode.workspace.applyEdit(wsEdit)
+			.then(() => vscode.workspace.openTextDocument(file))
+			.then((doc) => vscode.window.showTextDocument(doc))
+			.then((editor) => {
+				editor.edit((editorBuilder) => {
+					editorBuilder.insert(new vscode.Position(0,0), content)
+				}).then(() =>{
+					let cursorPos = new vscode.Position(5,4)
+					editor.selection = new vscode.Selection(cursorPos,cursorPos)
+				})
+			})
+		})
+		
+		inputbox.show()
+
+	})
+
 	context.subscriptions.push(commandCreateComponent);
+	context.subscriptions.push(commandCreateContext);
 }
 exports.activate = activate;
 

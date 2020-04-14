@@ -21,7 +21,7 @@
     "Use State": {
         "prefix": "ush",
         "body": [
-            "const [$1, set${1/([a-z_])/${1:/upcase}/}] = useState($0)"
+            "const [$1, set${1/([a-z_])/${1:/upcase}/}] = useState($2)$0"
         ]
     },
 
