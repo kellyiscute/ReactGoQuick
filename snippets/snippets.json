@@ -1,0 +1,34 @@
+{
+    "Function Component": {
+        "prefix": "fc",
+        "body": [
+			"function ${1:TM_FILENAME_BASE}(${2:props}) {",
+			"$0",
+			"}",
+			"",
+			"export default $1"
+        ],
+        "description": "Create Function Component"
+    },
+    "Import React": {
+        "prefix": "imrc",
+        "body": [
+            "import React from 'react'"
+        ],
+        "description": "Import React from react"
+    },
+
+    "Use State": {
+        "prefix": "ush",
+        "body": [
+            "const [$1, set${1/([a-z_])/${1:/upcase}/}] = useState($0)"
+        ]
+    },
+
+    "Use Context": {
+        "prefix": "uch",
+        "body": [
+            "const [$1] = useContext($0)"
+        ]
+    }
+}

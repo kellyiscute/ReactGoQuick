@@ -10,21 +10,36 @@ const vscode = require('vscode');
  */
 function activate(context) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "react-ext" is now active!');
+	let commandCreateComponent = vscode.commands.registerCommand('react-ext.CreateComponent', () => {
+		let inputbox = vscode.window.createInputBox()
+		inputbox.prompt = 'asdf'
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('react-ext.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
+		inputbox.onDidAccept(() => {
+			inputbox.hide()
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Kelly&#39;s React Extension!');
+			let wsEdit = new vscode.WorkspaceEdit()
+			// console.log(vscode.workspace.workspaceFolders[0])
+			let file = vscode.Uri.file(vscode.workspace.workspaceFolders[0].uri.path + '/src/components/' + inputbox.value + '.js')
+			// console.log(file.path)
+			wsEdit.createFile(file)
+
+			vscode.workspace.applyEdit(wsEdit)
+			.then(() => vscode.workspace.openTextDocument(file))
+			.then((doc) => vscode.window.showTextDocument(doc))
+			.then((editor) => {
+				editor.edit((editBuilder) => {
+					editBuilder.insert(new vscode.Position(0,0), "import React from 'react'\n\nfunction " + inputbox.value + "(props) {\n\t\n}\n\nexport default " + inputbox.value)
+				})
+				let cursorPos = new vscode.Position(3,4)
+				editor.selection = new vscode.Selection(cursorPos,cursorPos)
+			})
+		})
+
+		inputbox.show()
+
 	});
 
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(commandCreateComponent);
 }
 exports.activate = activate;
 

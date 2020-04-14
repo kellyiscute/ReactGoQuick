@@ -10,14 +10,20 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:react-ext.helloWorld"
+		"onCommand:react-ext.CreateComponent"
 	],
 	"main": "./src/extension.js",
 	"contributes": {
 		"commands": [{
-			"command": "react-ext.helloWorld",
-			"title": "Hello World"
-		}]
+			"command": "react-ext.CreateComponent",
+			"title": "CreateComponent"
+		}],
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets/snippets.json"
+			}
+		]
 	},
 	"scripts": {
 		"lint": "eslint .",
