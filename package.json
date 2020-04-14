@@ -3,7 +3,7 @@
 	"displayName": "Kelly's React Extension",
 	"description": "",
 	"publisher": "Kelly",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"engines": {
 		"vscode": "^1.44.0"
 	},
@@ -17,19 +17,33 @@
 	"main": "./src/extension.js",
 	"contributes": {
 		"commands": [{
-			"command": "react-ext.CreateComponent",
-			"title": "CreateComponent"
-		},
-		{
-			"command": "react-ext.CreateContext",
-			"title": "CreateContext"
-		}],
-		"snippets": [
+				"command": "react-ext.CreateComponent",
+				"title": "CreateComponent"
+			},
 			{
-				"language": "javascript",
-				"path": "./snippets/snippets.json"
+				"command": "react-ext.CreateContext",
+				"title": "CreateContext"
 			}
-		]
+		],
+		"snippets": [{
+			"language": "javascript",
+			"path": "./snippets/snippets.json"
+		}],
+		"configuration": [{
+			"title": "KellysReactExt",
+			"properties": {
+				"kellysReactExt.ComponentPath": {
+					"type": "string",
+					"default": "/src/components",
+					"description": "Relative path to all your components"
+				},
+				"kellysReactExt.ContextPath": {
+					"type": "string",
+					"default": "/src/contexts",
+					"description": "Relative path to all your contexts"
+				}
+			}
+		}]
 	},
 	"scripts": {
 		"lint": "eslint .",

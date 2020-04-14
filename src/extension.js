@@ -14,26 +14,28 @@ function activate(context) {
 		let inputbox = vscode.window.createInputBox()
 		inputbox.prompt = 'Component Name'
 
+		let componentsPath = vscode.workspace.getConfiguration('kellysReactExt').get('ComponentPath') + '/'
+
 		inputbox.onDidAccept(() => {
 			inputbox.hide()
 
 			let wsEdit = new vscode.WorkspaceEdit()
 			// console.log(vscode.workspace.workspaceFolders[0])
-			let file = vscode.Uri.file(vscode.workspace.workspaceFolders[0].uri.path + '/src/components/' + inputbox.value + '.js')
+			let file = vscode.Uri.file(vscode.workspace.workspaceFolders[0].uri.path + componentsPath + inputbox.value + '.js')
 			// console.log(file.path)
 			wsEdit.createFile(file)
 
 			vscode.workspace.applyEdit(wsEdit)
-			.then(() => vscode.workspace.openTextDocument(file))
-			.then((doc) => vscode.window.showTextDocument(doc))
-			.then((editor) => {
-				editor.edit((editBuilder) => {
-					editBuilder.insert(new vscode.Position(0,0), "import React from 'react'\n\nfunction " + inputbox.value + "(props) {\n\t\n}\n\nexport default " + inputbox.value)
-				}).then(() => {
-					let cursorPos = new vscode.Position(3,4)
-					editor.selection = new vscode.Selection(cursorPos,cursorPos)
+				.then(() => vscode.workspace.openTextDocument(file))
+				.then((doc) => vscode.window.showTextDocument(doc))
+				.then((editor) => {
+					editor.edit((editBuilder) => {
+						editBuilder.insert(new vscode.Position(0, 0), "import React from 'react'\n\nfunction " + inputbox.value + "(props) {\n\t\n}\n\nexport default " + inputbox.value)
+					}).then(() => {
+						let cursorPos = new vscode.Position(3, 4)
+						editor.selection = new vscode.Selection(cursorPos, cursorPos)
+					})
 				})
-			})
 		})
 
 		inputbox.show()
@@ -44,15 +46,17 @@ function activate(context) {
 	let commandCreateContext = vscode.commands.registerCommand('react-ext.CreateContext', () => {
 		let inputbox = vscode.window.createInputBox()
 		inputbox.prompt = 'Context Name'
-		
+
 		inputbox.onDidAccept(() => {
 			inputbox.hide()
 			let contextName = inputbox.value
 			let fileName = inputbox.value + '.js'
 			let functionName = inputbox.value + 'Provider'
+			let componentsPath = vscode.workspace.getConfiguration('kellysReactExt').get('ContextPath') + '/'
 
-			let content = 
-`import React, { createContext } from 'react'
+
+			let content =
+				`import React, { createContext } from 'react'
 
 export const ${contextName} = createContext()
 
@@ -74,20 +78,24 @@ export default ${functionName}
 
 			wsEdit.createFile(file)
 			vscode.workspace.applyEdit(wsEdit)
-			.then(() => vscode.workspace.openTextDocument(file))
-			.then((doc) => vscode.window.showTextDocument(doc))
-			.then((editor) => {
-				editor.edit((editorBuilder) => {
-					editorBuilder.insert(new vscode.Position(0,0), content)
-				}).then(() =>{
-					let cursorPos = new vscode.Position(5,4)
-					editor.selection = new vscode.Selection(cursorPos,cursorPos)
+				.then(() => vscode.workspace.openTextDocument(file))
+				.then((doc) => vscode.window.showTextDocument(doc))
+				.then((editor) => {
+					editor.edit((editorBuilder) => {
+						editorBuilder.insert(new vscode.Position(0, 0), content)
+					}).then(() => {
+						let cursorPos = new vscode.Position(5, 4)
+						editor.selection = new vscode.Selection(cursorPos, cursorPos)
+					})
 				})
-			})
 		})
-		
+
 		inputbox.show()
 
+	})
+
+	let testTheFucks = vscode.commands.registerCommand('react-ext.testTheFucks', () => {
+		console.log(vscode.workspace.getConfiguration('kellysReactExt').get('ComponentPath'))
 	})
 
 	context.subscriptions.push(commandCreateComponent);
