@@ -3,7 +3,7 @@
 	"displayName": "ReactGoQuick",
 	"description": "Create components & contexts with just one key",
 	"publisher": "Kelly",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"icon": "react-logo.png",
 	"engines": {
 		"vscode": "^1.44.0"
@@ -16,14 +16,19 @@
 	"categories": [
 		"Other"
 	],
-	"keywords": ["react", "react hook", "react snippet"],
+	"keywords": [
+		"react",
+		"react hook",
+		"react snippet"
+	],
 	"activationEvents": [
 		"onCommand:react-ext.CreateComponent",
 		"onCommand:react-ext.CreateContext"
 	],
 	"main": "./src/extension.js",
 	"contributes": {
-		"commands": [{
+		"commands": [
+			{
 				"command": "react-ext.CreateComponent",
 				"title": "Create Component"
 			},
@@ -32,25 +37,29 @@
 				"title": "Create Context"
 			}
 		],
-		"snippets": [{
-			"language": "javascript",
-			"path": "./snippets/snippets.json"
-		}],
-		"configuration": [{
-			"title": "ReactGoQuick",
-			"properties": {
-				"ReactGoQuick.ComponentPath": {
-					"type": "string",
-					"default": "/src/components",
-					"description": "Relative path to all your components"
-				},
-				"ReactGoQuick.ContextPath": {
-					"type": "string",
-					"default": "/src/contexts",
-					"description": "Relative path to all your contexts"
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets/snippets.json"
+			}
+		],
+		"configuration": [
+			{
+				"title": "ReactGoQuick",
+				"properties": {
+					"ReactGoQuick.ComponentPath": {
+						"type": "string",
+						"default": "/src/components",
+						"description": "Relative path to all your components"
+					},
+					"ReactGoQuick.ContextPath": {
+						"type": "string",
+						"default": "/src/contexts",
+						"description": "Relative path to all your contexts"
+					}
 				}
 			}
-		}]
+		]
 	},
 	"scripts": {
 		"lint": "eslint .",
