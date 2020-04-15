@@ -95,7 +95,7 @@ export default ${functionName}
 	})
 
 	let testTheFucks = vscode.commands.registerCommand('react-ext.testTheFucks', () => {
-		console.log(vscode.workspace.getConfiguration('kellysReactExt').get('ComponentPath'))
+		console.log(vscode.workspace.getConfiguration('ReactGoQuick').get('ComponentPath'))
 	})
 
 	context.subscriptions.push(commandCreateComponent);
