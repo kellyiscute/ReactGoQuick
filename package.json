@@ -10,7 +10,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/guo40020/react-ext"	
+		"url": "https://github.com/guo40020/react-ext"
 	},
 	"license": "MIT",
 	"categories": [
@@ -25,11 +25,11 @@
 	"contributes": {
 		"commands": [{
 				"command": "react-ext.CreateComponent",
-				"title": "CreateComponent"
+				"title": "Create Component"
 			},
 			{
 				"command": "react-ext.CreateContext",
-				"title": "CreateContext"
+				"title": "Create Context"
 			}
 		],
 		"snippets": [{
@@ -37,7 +37,7 @@
 			"path": "./snippets/snippets.json"
 		}],
 		"configuration": [{
-			"title": "ReactHooks",
+			"title": "ReactGoQuick",
 			"properties": {
 				"ReactGoQuick.ComponentPath": {
 					"type": "string",

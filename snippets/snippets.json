@@ -2,16 +2,16 @@
     "Function Component": {
         "prefix": "fc",
         "body": [
-			"function ${1:$TM_FILENAME_BASE}(${2:props}) {",
+            "function ${1:$TM_FILENAME_BASE}(${2:props}) {",
             "$0",
             "   return (",
             "       <div>",
             "       ",
             "       </div>",
             "   )",
-			"}",
-			"",
-			"export default $1"
+            "}",
+            "",
+            "export default $1"
         ],
         "description": "Create Function Component"
     },
@@ -21,6 +21,22 @@
             "import React from 'react'"
         ],
         "description": "Import React from react"
+    },
+
+    "Import React useState useContext": {
+        "prefix": "imrsc",
+        "body": [
+            "import React, { useState, useContext } from 'react'"
+        ],
+        "description": "Import React useState useContext"
+    },
+
+    "Import React useState": {
+        "prefix": "imrs",
+        "body": [
+            "import React, { useState } from 'react'"
+        ],
+        "description": "Import React useState"
     },
 
     "Use State": {
@@ -43,13 +59,12 @@
         "prefix": "imco",
         "body": [
             "import $1 from './$1'"
-        ]
-        ,
+        ],
         "description": "import component"
     },
 
     "Const Functions": {
-        "prefix": "csf",
+        "prefix": "cf",
         "body": [
             "const $1 = () => {",
             "   $0",

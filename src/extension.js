@@ -30,7 +30,7 @@ function activate(context) {
 				.then((doc) => vscode.window.showTextDocument(doc))
 				.then((editor) => {
 					editor.edit((editBuilder) => {
-						editBuilder.insert(new vscode.Position(0, 0), "import React from 'react'\n\nfunction " + inputbox.value + "(props) {\n\t\n}\n\nexport default " + inputbox.value)
+						editBuilder.insert(new vscode.Position(0, 0), "import React from 'react'\n\nfunction " + inputbox.value + "(props) {\n\t\n\treturn()\n}\n\nexport default " + inputbox.value)
 					}).then(() => {
 						let cursorPos = new vscode.Position(3, 4)
 						editor.selection = new vscode.Selection(cursorPos, cursorPos)
