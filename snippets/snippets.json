@@ -2,8 +2,13 @@
     "Function Component": {
         "prefix": "fc",
         "body": [
-			"function ${1:TM_FILENAME_BASE}(${2:props}) {",
-			"$0",
+			"function ${1:$TM_FILENAME_BASE}(${2:props}) {",
+            "$0",
+            "   return (",
+            "       <div>",
+            "       ",
+            "       </div>",
+            "   )",
 			"}",
 			"",
 			"export default $1"
@@ -22,13 +27,42 @@
         "prefix": "ush",
         "body": [
             "const [$1, set${1/([a-z_])/${1:/upcase}/}] = useState($2)$0"
-        ]
+        ],
+        "description": "Use State Hook"
     },
 
     "Use Context": {
         "prefix": "uch",
         "body": [
             "const [$1] = useContext($0)"
+        ],
+        "description": "Use Context Hook"
+    },
+
+    "Import Component": {
+        "prefix": "imco",
+        "body": [
+            "import $1 from './$1'"
         ]
+        ,
+        "description": "import component"
+    },
+
+    "Const Functions": {
+        "prefix": "csf",
+        "body": [
+            "const $1 = () => {",
+            "   $0",
+            "}"
+        ],
+        "description": "Create function"
+    },
+
+    "Console log": {
+        "prefix": "csl",
+        "body": [
+            "console.log($0)"
+        ],
+        "description": "Console.log"
     }
 }

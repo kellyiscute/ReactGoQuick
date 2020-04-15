@@ -14,7 +14,7 @@ function activate(context) {
 		let inputbox = vscode.window.createInputBox()
 		inputbox.prompt = 'Component Name'
 
-		let componentsPath = vscode.workspace.getConfiguration('kellysReactExt').get('ComponentPath') + '/'
+		let componentsPath = vscode.workspace.getConfiguration('ReactGoQuick').get('ComponentPath') + '/'
 
 		inputbox.onDidAccept(() => {
 			inputbox.hide()
@@ -52,7 +52,7 @@ function activate(context) {
 			let contextName = inputbox.value
 			let fileName = inputbox.value + '.js'
 			let functionName = inputbox.value + 'Provider'
-			let componentsPath = vscode.workspace.getConfiguration('kellysReactExt').get('ContextPath') + '/'
+			let componentsPath = vscode.workspace.getConfiguration('ReactGoQuick').get('ContextPath') + '/'
 
 
 			let content =

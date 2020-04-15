@@ -1,15 +1,22 @@
 {
 	"name": "react-ext",
-	"displayName": "Kelly's React Extension",
-	"description": "",
+	"displayName": "ReactGoQuick",
+	"description": "Create components & contexts with just one key",
 	"publisher": "Kelly",
-	"version": "0.0.3",
+	"version": "1.0.0",
+	"icon": "react-logo.png",
 	"engines": {
 		"vscode": "^1.44.0"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/guo40020/react-ext"	
+	},
+	"license": "MIT",
 	"categories": [
 		"Other"
 	],
+	"keywords": ["react", "react hook", "react snippet"],
 	"activationEvents": [
 		"onCommand:react-ext.CreateComponent",
 		"onCommand:react-ext.CreateContext"
@@ -30,14 +37,14 @@
 			"path": "./snippets/snippets.json"
 		}],
 		"configuration": [{
-			"title": "KellysReactExt",
+			"title": "ReactHooks",
 			"properties": {
-				"kellysReactExt.ComponentPath": {
+				"ReactGoQuick.ComponentPath": {
 					"type": "string",
 					"default": "/src/components",
 					"description": "Relative path to all your components"
 				},
-				"kellysReactExt.ContextPath": {
+				"ReactGoQuick.ContextPath": {
 					"type": "string",
 					"default": "/src/contexts",
 					"description": "Relative path to all your contexts"

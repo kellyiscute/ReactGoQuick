@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg14"
+   version="1.1"
+   viewBox="-11.5 -10.23174 23 20.46348">
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs18" />
+  <title
+     id="title2">React Logo</title>
+  <circle
+     id="circle4"
+     fill="#61dafb"
+     r="2.05"
+     cy="0"
+     cx="0" />
+  <g
+     id="g12"
+     fill="none"
+     stroke-width="1"
+     stroke="#61dafb">
+    <ellipse
+       id="ellipse6"
+       ry="4.2"
+       rx="11" />
+    <ellipse
+       id="ellipse8"
+       transform="rotate(60)"
+       ry="4.2"
+       rx="11" />
+    <ellipse
+       id="ellipse10"
+       transform="rotate(120)"
+       ry="4.2"
+       rx="11" />
+  </g>
+</svg>
