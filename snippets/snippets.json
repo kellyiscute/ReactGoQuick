@@ -67,7 +67,7 @@
         "prefix": "cf",
         "body": [
             "const $1 = () => {",
-            "   $0",
+            "    $0",
             "}"
         ],
         "description": "Create function"
