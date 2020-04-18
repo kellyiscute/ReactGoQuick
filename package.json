@@ -3,7 +3,7 @@
 	"displayName": "ReactGoQuick",
 	"description": "Create components & contexts with just one key",
 	"publisher": "Kelly",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"icon": "react-logo.png",
 	"engines": {
 		"vscode": "^1.44.0"
