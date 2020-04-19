@@ -56,7 +56,7 @@ function activate(context) {
 
 
 			let content =
-				`import React, { createContext } from 'react'
+				`import React, { createContext, useState } from 'react'
 
 export const ${contextName} = createContext()
 
