@@ -21,7 +21,7 @@ function activate(context) {
 
 			let wsEdit = new vscode.WorkspaceEdit()
 			// console.log(vscode.workspace.workspaceFolders[0])
-			let file = vscode.Uri.file(vscode.workspace.workspaceFolders[0].uri.path + componentsPath + inputbox.value + '.js')
+			let file = vscode.Uri.file(vscode.workspace.workspaceFolders[0].uri.path + componentsPath + inputbox.value + '.jsx')
 			// console.log(file.path)
 			wsEdit.createFile(file)
 
@@ -50,7 +50,7 @@ function activate(context) {
 		inputbox.onDidAccept(() => {
 			inputbox.hide()
 			let contextName = inputbox.value
-			let fileName = inputbox.value + '.js'
+			let fileName = inputbox.value + '.jsx'
 			let functionName = inputbox.value + 'Provider'
 			let componentsPath = vscode.workspace.getConfiguration('ReactGoQuick').get('ContextPath') + '/'
 
