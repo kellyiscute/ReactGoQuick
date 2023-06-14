@@ -3,7 +3,7 @@
 	"displayName": "ReactGoQuick",
 	"description": "Create components & contexts with just one key",
 	"publisher": "Kelly",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"icon": "react-logo.png",
 	"engines": {
 		"vscode": "^1.44.0"
@@ -43,7 +43,11 @@
 			{
 				"language": "javascript",
 				"path": "./snippets/snipptes.json"
-			}
+			},
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/snippets.json"
+      }
 		],
 		"configuration": [{
 			"title": "ReactGoQuick",
